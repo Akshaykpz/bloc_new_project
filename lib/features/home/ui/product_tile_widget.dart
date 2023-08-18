@@ -8,18 +8,38 @@ class ListTileItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          border: Border.all(),
+          borderRadius: BorderRadius.all(Radius.circular(19))),
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(10),
-      child: Column(children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Container(
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(productDataModel.imageurl))),
-          height: 200,
+              // image: DecorationImage(
+              //     image: NetworkImage(productDataModel.imageurl))),)
+              ),
+          height: 150,
           width: double.infinity,
         ),
-        Text(productDataModel.name),
-        Text(productDataModel.price)
+        Text(
+          productDataModel.name,
+          style: TextStyle(fontSize: 20),
+        ),
+        Text('${productDataModel.price}'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.favorite_border),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.shopping_bag_outlined),
+            )
+          ],
+        )
       ]),
     );
   }
